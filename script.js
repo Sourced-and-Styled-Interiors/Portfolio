@@ -231,7 +231,7 @@ function setupFormSubmission() {
       alert("There was a problem sending the form. Please try again.");
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = "Submit questionnaire";
+      submitBtn.textContent = "Submit";
     }
   });
 }
