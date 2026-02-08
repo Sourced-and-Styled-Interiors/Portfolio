@@ -1,0 +1,9 @@
+# Private/sensitive assets
+private/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
