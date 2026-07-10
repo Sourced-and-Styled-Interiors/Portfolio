@@ -967,27 +967,36 @@ main section {
 }
 
 .social-list {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px 14px;
+  display: grid;
+  gap: 10px;
   font-size: clamp(0.92rem, 1.4vw, 1rem);
   letter-spacing: 0.01em;
 }
 
+.social-intro {
+  color: var(--muted);
+}
+
 .social-icons {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
 .social-icons a {
-  display: inline-grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  color: var(--muted);
-  transition: color 180ms var(--ease-out), transform 180ms var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 1px solid rgba(96, 104, 98, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.44);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: border-color 180ms var(--ease-out), color 180ms var(--ease-out), background 180ms var(--ease-out), transform 180ms var(--ease-out);
 }
 
 .contact-list .icon {
@@ -1000,15 +1009,16 @@ main section {
 }
 
 .social-icons .icon {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   fill: currentColor;
   opacity: 0.9;
 }
 
-.social-list span {
+.social-handle {
   color: var(--muted);
   overflow-wrap: anywhere;
+  font-size: 0.88em;
 }
 
 .contact-list a:hover,
@@ -1017,7 +1027,14 @@ main section {
 }
 
 .social-icons a:hover {
+  border-color: rgba(96, 104, 98, 0.45);
+  background: rgba(255, 255, 255, 0.78);
   transform: translateY(-1px);
+}
+
+.social-icons a:focus-visible {
+  outline: 2px solid rgba(96, 104, 98, 0.55);
+  outline-offset: 3px;
 }
 
 @media (max-width: 1080px) {
