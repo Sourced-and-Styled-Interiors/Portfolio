@@ -96,6 +96,9 @@ function setupDesignSlider() {
   const track = document.querySelector("[data-design-track]");
   if (!track) return;
 
+  const section = track.closest(".portfolio-slider");
+  const shell = section?.querySelector("[data-slider-shell]");
+  const status = section?.querySelector("[data-slider-status]");
   const slides = Array.from(track.querySelectorAll(".design-slide"));
   const dots = Array.from(document.querySelectorAll(".slider-dots .dot"));
   if (slides.length < 2) return;
@@ -111,6 +114,7 @@ function setupDesignSlider() {
 
   let index = 1;
   let timerId = null;
+  let isPaused = false;
   const autoplayDelayMs = 3200;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -151,9 +155,39 @@ function setupDesignSlider() {
   };
 
   const startAutoplay = () => {
-    if (reducedMotion) return;
+    if (reducedMotion || isPaused) return;
     stopAutoplay();
     timerId = window.setInterval(showNextSlide, autoplayDelayMs);
+  };
+
+  const updatePauseState = () => {
+    section?.classList.toggle("is-paused", isPaused);
+
+    if (shell) {
+      shell.setAttribute("aria-pressed", String(isPaused));
+      shell.setAttribute("aria-label", isPaused ? "Resume slideshow" : "Pause slideshow");
+    }
+
+    if (status) {
+      status.textContent = isPaused ? "Slideshow paused" : "Slideshow playing";
+    }
+  };
+
+  const setPaused = (nextPaused) => {
+    isPaused = nextPaused;
+
+    if (isPaused) {
+      stopAutoplay();
+    } else {
+      startAutoplay();
+    }
+
+    updatePauseState();
+  };
+
+  const togglePause = () => {
+    if (reducedMotion) return;
+    setPaused(!isPaused);
   };
 
   track.addEventListener("transitionend", (event) => {
@@ -168,10 +202,13 @@ function setupDesignSlider() {
     }
   });
 
-  track.addEventListener("mouseenter", stopAutoplay);
-  track.addEventListener("mouseleave", startAutoplay);
-  track.addEventListener("focusin", stopAutoplay);
-  track.addEventListener("focusout", startAutoplay);
+  shell?.addEventListener("click", togglePause);
+
+  shell?.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    togglePause();
+  });
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
@@ -182,6 +219,7 @@ function setupDesignSlider() {
   });
 
   renderSlide(false);
+  updatePauseState();
   startAutoplay();
 }
 
