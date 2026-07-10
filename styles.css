@@ -189,6 +189,24 @@ main,
   color: var(--ink);
 }
 
+.nav .nav-cta {
+  padding: 8px 12px;
+  border: 1px solid rgba(96, 104, 98, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--ink);
+  box-shadow: 0 5px 12px rgba(72, 81, 75, 0.08);
+  transition: background 220ms var(--ease-out), border-color 220ms var(--ease-out), color 220ms var(--ease-out), transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
+}
+
+.nav .nav-cta:hover {
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(72, 81, 75, 0.2);
+  transform: translateY(-1px);
+}
+
 main {
   padding-bottom: 40px;
   display: grid;
@@ -694,28 +712,43 @@ main section {
 
 .button {
   border: none;
-  border-radius: 0;
+  border-radius: 999px;
   font-family: inherit;
-  font-size: 0.98rem;
-  font-weight: 700;
-  padding: 12px 20px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 14px 21px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 9px;
   cursor: pointer;
-  transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out), filter 220ms var(--ease-out);
+  transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out), filter 220ms var(--ease-out), background 220ms var(--ease-out);
 }
 
 .button.primary {
   color: #ffffff;
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  box-shadow: 0 10px 24px rgba(90, 98, 92, 0.34);
+  background: linear-gradient(135deg, #78847d, #4f5f56);
+  box-shadow: 0 10px 22px rgba(66, 79, 70, 0.28);
+}
+
+.button.primary::after {
+  content: "→";
+  font-size: 1.15em;
+  line-height: 0;
+  transition: transform 220ms var(--ease-out);
 }
 
 .button.primary:hover {
   transform: translateY(-2px);
-  filter: brightness(1.02);
-  box-shadow: 0 14px 30px rgba(90, 98, 92, 0.4);
+  filter: brightness(1.04);
+  box-shadow: 0 15px 28px rgba(66, 79, 70, 0.35);
+}
+
+.button.primary:hover::after {
+  transform: translateX(3px);
 }
 
 .button:active {
@@ -917,32 +950,22 @@ main section {
 }
 
 .footer {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  padding: clamp(22px, 3vw, 34px);
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding: clamp(16px, 2.2vw, 22px) clamp(18px, 3vw, 30px);
   border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   border: none;
   background: rgba(246, 248, 244, 0.88);
   box-shadow: none;
   display: grid;
-  grid-template-columns: minmax(190px, 0.75fr) minmax(260px, 0.9fr) minmax(360px, 1.35fr);
-  gap: clamp(18px, 3vw, 34px);
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.9fr);
+  gap: clamp(20px, 4vw, 52px);
+  align-items: center;
   color: var(--muted);
 }
 
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer .brand-name {
-  font-size: 1.2rem;
-}
-
 .footer-heading {
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -952,7 +975,7 @@ main section {
 
 .contact-list {
   display: grid;
-  gap: 10px;
+  gap: 7px;
   font-size: clamp(0.92rem, 1.4vw, 1rem);
   letter-spacing: 0.01em;
 }
@@ -968,27 +991,23 @@ main section {
 
 .social-list {
   display: grid;
-  gap: 10px;
+  gap: 7px;
   font-size: clamp(0.92rem, 1.4vw, 1rem);
   letter-spacing: 0.01em;
-}
-
-.social-intro {
-  color: var(--muted);
 }
 
 .social-icons {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .social-icons a {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 8px 11px;
+  padding: 7px 10px;
   border: 1px solid rgba(96, 104, 98, 0.22);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.44);
@@ -1015,12 +1034,6 @@ main section {
   opacity: 0.9;
 }
 
-.social-handle {
-  color: var(--muted);
-  overflow-wrap: anywhere;
-  font-size: 0.88em;
-}
-
 .contact-list a:hover,
 .social-icons a:hover {
   color: var(--accent-strong);
@@ -1043,11 +1056,7 @@ main section {
   }
 
   .footer {
-    grid-template-columns: minmax(190px, 0.8fr) minmax(260px, 1fr);
-  }
-
-  .footer-social {
-    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 0.9fr);
   }
 }
 
@@ -1064,10 +1073,23 @@ main section {
 
   .footer {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .footer-social {
-    grid-column: auto;
+  .social-icons {
+    gap: 6px;
+  }
+
+  .social-icons a {
+    min-height: 34px;
+    gap: 5px;
+    padding: 8px;
+    font-size: 0.75rem;
+  }
+
+  .social-icons .icon {
+    width: 15px;
+    height: 15px;
   }
 
   .nav {
