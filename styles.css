@@ -1,18 +1,18 @@
 :root {
-  --bg: #e6e7e2;
-  --bg-soft: #f1f2ee;
-  --panel: #f8f9f6;
-  --panel-warm: #eef0eb;
-  --ink: #2e312f;
-  --muted: #616662;
-  --line: #cfd3cd;
-  --line-strong: #b9beb7;
-  --accent: #78817a;
-  --accent-strong: #606862;
-  --accent-soft: #dce0da;
-  --success: #4f6f5f;
-  --shadow-soft: 0 14px 30px rgba(51, 56, 53, 0.12);
-  --shadow: 0 20px 48px rgba(43, 48, 45, 0.16);
+  --bg: #f8f6f3;
+  --bg-soft: #f3f0eb;
+  --panel: #ffffff;
+  --panel-warm: #eee9e2;
+  --ink: #403a34;
+  --muted: #756d65;
+  --line: #ded7ce;
+  --line-strong: #ccc1b4;
+  --accent: #ab9178;
+  --accent-strong: #806c5b;
+  --accent-soft: #e9e0d5;
+  --success: #657164;
+  --shadow-soft: 0 14px 30px rgba(83, 69, 56, 0.1);
+  --shadow: 0 20px 48px rgba(70, 57, 46, 0.14);
   --radius-xl: 30px;
   --radius-lg: 22px;
   --radius-md: 14px;
@@ -53,7 +53,7 @@ body::after {
 }
 
 ::selection {
-  background: rgba(125, 133, 124, 0.3);
+  background: rgba(199, 181, 158, 0.42);
 }
 
 a {
@@ -112,15 +112,16 @@ main,
   top: 0;
   z-index: 50;
   margin-top: 0;
-  padding: 16px 24px;
-  border: none;
+  padding: 9px 24px;
+  border: 1px solid #ebe5dd;
+  border-bottom: none;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  background: rgba(245, 247, 243, 0.94);
+  background: rgba(250, 248, 245, 0.96);
   backdrop-filter: blur(12px);
   box-shadow: none;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 18px;
   transition: padding 280ms var(--ease-out), box-shadow 280ms var(--ease-out), border-color 280ms var(--ease-out), border-radius 280ms var(--ease-out);
 }
@@ -129,6 +130,19 @@ main,
   padding-block: 10px;
   border-radius: 0;
   box-shadow: none;
+}
+
+.header-logo {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: clamp(58px, 7vw, 78px);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.header-logo img {
+  width: 100%;
+  height: auto;
 }
 
 .brand {
@@ -205,49 +219,24 @@ main section {
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: clamp(17px, 2.3vw, 25px) clamp(20px, 3.2vw, 34px);
-  border: 1px solid #e8d5d8;
+  justify-content: center;
+  padding: clamp(14px, 1.8vw, 19px) clamp(20px, 3.2vw, 34px);
+  border: 1px solid #e4d9cb;
   border-radius: 0 0 26px 26px;
-  background: linear-gradient(110deg, #fcf8f6 0%, #f6e9e9 56%, #f1e4e7 100%);
-  box-shadow: 0 12px 28px rgba(120, 78, 88, 0.09);
+  background: linear-gradient(110deg, #fdfcf9 0%, #f2ede5 55%, #eae0d3 100%);
+  box-shadow: 0 12px 28px rgba(100, 78, 57, 0.08);
 }
 
 .follow-links::after {
   content: "";
   position: absolute;
-  top: -115px;
+  top: -132px;
   right: -34px;
   width: 235px;
   height: 235px;
-  border: 1px solid rgba(181, 124, 137, 0.24);
+  border: 1px solid rgba(170, 140, 107, 0.24);
   border-radius: 50%;
-  box-shadow: -28px 30px 0 -1px rgba(255, 255, 255, 0.4), -54px 58px 0 -1px rgba(222, 183, 190, 0.16);
-}
-
-.follow-links-copy {
-  display: grid;
-  gap: 2px;
-  flex: 0 1 340px;
-  position: relative;
-  z-index: 1;
-}
-
-.follow-links-kicker {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-  color: #9b6470;
-}
-
-.follow-links-copy p {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.05rem, 1.45vw, 1.2rem);
-  font-weight: 600;
-  line-height: 1.45;
-  color: #53474a;
+  box-shadow: -28px 30px 0 -1px rgba(255, 255, 255, 0.42), -54px 58px 0 -1px rgba(214, 197, 176, 0.2);
 }
 
 .reveal {
@@ -696,8 +685,8 @@ main section {
 
 .button.primary {
   color: #ffffff;
-  background: linear-gradient(135deg, #78847d, #4f5f56);
-  box-shadow: 0 10px 22px rgba(66, 79, 70, 0.28);
+  background: linear-gradient(135deg, #ad937a, #7d6857);
+  box-shadow: 0 10px 22px rgba(100, 77, 59, 0.25);
 }
 
 .button.primary::after {
@@ -710,7 +699,7 @@ main section {
 .button.primary:hover {
   transform: translateY(-2px);
   filter: brightness(1.04);
-  box-shadow: 0 15px 28px rgba(66, 79, 70, 0.35);
+  box-shadow: 0 15px 28px rgba(100, 77, 59, 0.32);
 }
 
 .button.primary:hover::after {
@@ -921,7 +910,7 @@ main section {
   padding: clamp(16px, 2.2vw, 22px) clamp(18px, 3vw, 30px);
   border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   border: none;
-  background: rgba(246, 248, 244, 0.88);
+  background: #f5f1eb;
   box-shadow: none;
   display: grid;
   grid-template-columns: 1fr;
@@ -975,22 +964,22 @@ main section {
   align-items: center;
   gap: 7px;
   padding: 9px 13px;
-  border: 1px solid rgba(180, 126, 138, 0.34);
+  border: 1px solid rgba(161, 133, 103, 0.36);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  color: #5c4c50;
+  background: rgba(255, 255, 255, 0.8);
+  color: #5b4d40;
   font-size: 0.82rem;
   font-weight: 700;
   line-height: 1;
-  box-shadow: 0 4px 11px rgba(116, 76, 85, 0.06);
+  box-shadow: 0 4px 11px rgba(105, 80, 56, 0.06);
   transition: border-color 180ms var(--ease-out), color 180ms var(--ease-out), background 180ms var(--ease-out), transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
 }
 
 .social-icons .linktree-link {
-  border-color: #9a5f6d;
-  background: linear-gradient(135deg, #a86878, #874e5d);
+  border-color: #8d7259;
+  background: linear-gradient(135deg, #aa9076, #7d6755);
   color: #ffffff;
-  box-shadow: 0 8px 16px rgba(128, 72, 87, 0.24);
+  box-shadow: 0 8px 16px rgba(100, 77, 59, 0.22);
 }
 
 .contact-list .icon {
@@ -1015,20 +1004,20 @@ main section {
 }
 
 .social-icons a:hover {
-  border-color: #bb8793;
-  background: #fffafa;
-  box-shadow: 0 7px 15px rgba(116, 76, 85, 0.12);
+  border-color: #b49778;
+  background: #fffdf9;
+  box-shadow: 0 7px 15px rgba(105, 80, 56, 0.12);
   transform: translateY(-1px);
 }
 
 .social-icons .linktree-link:hover {
-  border-color: #804553;
-  background: linear-gradient(135deg, #a86878, #77404d);
+  border-color: #755d49;
+  background: linear-gradient(135deg, #a48a70, #705a49);
   color: #ffffff;
 }
 
 .social-icons a:focus-visible {
-  outline: 2px solid rgba(96, 104, 98, 0.55);
+  outline: 2px solid rgba(128, 108, 91, 0.55);
   outline-offset: 3px;
 }
 
@@ -1051,9 +1040,7 @@ main section {
   }
 
   .follow-links {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 12px;
+    align-items: center;
   }
 
   .follow-links::after {
