@@ -9,8 +9,6 @@
   --line-strong: #d8c7b7;
   --accent: #aa8a70;
   --accent-deep: #765c49;
-  --party-soft: #f7e8eb;
-  --party-deep: #9e6571;
   --shadow: 0 18px 42px rgba(75, 55, 39, 0.08);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -246,6 +244,31 @@ main section {
   margin: 0;
 }
 
+.hero-cover {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(8px, 1.25vw, 16px);
+  border-radius: 34px 34px 108px 34px;
+  background: linear-gradient(135deg, #f8f4ee 0%, #ede3d7 100%);
+}
+
+.hero-cover::before {
+  position: absolute;
+  top: -108px;
+  right: -86px;
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgba(129, 98, 73, 0.17);
+  border-radius: 50%;
+  box-shadow: -31px 28px 0 -1px rgba(255, 255, 255, 0.45);
+  content: "";
+}
+
+.cover-page-frame {
+  position: relative;
+  z-index: 1;
+}
+
 .cover-page-frame img {
   width: 100%;
   border: 0;
@@ -379,13 +402,13 @@ main section {
 }
 
 .service-card--party {
-  border-color: #efd6dc;
-  background: var(--party-soft);
+  border-color: #e8dbcf;
+  background: #f7f2ec;
 }
 
 .service-card--party:hover {
-  border-color: #e2bdc5;
-  background: #f9e6ea;
+  border-color: #dbc7b4;
+  background: #f1e9df;
 }
 
 .service-number {
@@ -397,7 +420,7 @@ main section {
 
 .service-card--party .service-number,
 .service-card--party h3 {
-  color: var(--party-deep);
+  color: var(--accent-deep);
 }
 
 .service-card h3 {
@@ -446,11 +469,11 @@ main section {
 
 .planning-path--party {
   border-radius: 34px 34px 34px 7px;
-  background: #f7e9eb;
+  background: #f7f2ec;
 }
 
 .planning-path--party .planning-label {
-  color: var(--party-deep);
+  color: var(--accent-deep);
 }
 
 .planning-path h3 {
@@ -489,7 +512,7 @@ main section {
 }
 
 .planning-path--party li::before {
-  background: var(--party-deep);
+  background: var(--accent-deep);
 }
 
 .planning-note {
@@ -513,11 +536,16 @@ main section {
   gap: clamp(52px, 7vw, 108px);
 }
 
+.portfolio-section.reveal {
+  opacity: 1;
+  transform: none;
+}
+
 .project-card {
-  --project-bg: #f5e7e7;
-  --project-deep: #895c5e;
-  --project-mid: #d99ba5;
-  --project-soft: #faeff0;
+  --project-bg: #f3ede6;
+  --project-deep: #765c49;
+  --project-mid: #c6aa93;
+  --project-soft: #fbfaf7;
   display: grid;
   grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.18fr);
   column-gap: clamp(30px, 6vw, 98px);
@@ -934,6 +962,11 @@ main section {
   }
 
   .welcome-section {
+    border-radius: 24px 24px 72px 24px;
+  }
+
+  .hero-cover {
+    padding: 7px;
     border-radius: 24px 24px 72px 24px;
   }
 
