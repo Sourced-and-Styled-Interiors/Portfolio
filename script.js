@@ -20,7 +20,7 @@ function setupHeaderState() {
 function setupScrollReveal() {
   const targets = Array.from(
     document.querySelectorAll(
-      "main > section, .footer, .service-card, .process-steps li, .project-card"
+      "main > section, .footer, .service-card, .planning-path, .project-card"
     )
   );
 
